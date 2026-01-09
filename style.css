@@ -193,10 +193,10 @@ body {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 20px;
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 .project-card {
@@ -210,13 +210,29 @@ body {
     font-weight: bold; */
     background: #fff; /* Fundo branco ou neutro é melhor para social media */
     width: 100%;
-    max-width: 320px; /* Define uma largura máxima para o card não esticar demais */
     display: flex;
     flex-direction: column;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     margin: 0 auto
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 992px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Quando a tela for pequena (celulares), fica 1 por linha */
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Responsividade */
@@ -323,15 +339,16 @@ body {
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .price-card {
     background: #fff;
-    padding: 25px 20px;
+    padding: 30px 25px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
@@ -339,6 +356,22 @@ body {
     flex-direction: column;
     border: 1px solid #eee;
     position: relative;
+    width: 100%;
+}
+
+/* Ajuste para Tablets (até 992px) */
+@media (max-width: 992px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards por linha */
+    }
+}
+
+/* Ajuste para Celulares (até 600px) */
+@media (max-width: 600px) {
+    .pricing-grid {
+        grid-template-columns: 1fr; /* 1 card por linha (tela cheia) */
+        padding: 10px;
+    }
 }
 
 .price-card:hover {
@@ -457,6 +490,7 @@ body {
     aspect-ratio: 1 / 1; /* Isso força a imagem a ser um quadrado perfeito, muito comum no IG */
     overflow: hidden;
     position: relative;
+    background-color: #fff;
 }
 
 .carousel-slides {
