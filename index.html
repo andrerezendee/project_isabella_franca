@@ -292,28 +292,28 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Flórea House. Todos os direitos reservados. | Desenvolvido por Andre Rezende</p>
+            <p>&copy; 2026 Flórea House. Todos os direitos reservados. | <a href="" target="_blank" rel="noopener noreferrer" class="footer_link">Desenvolvido por André Rezende </a></p>
         </div>
       </footer>
 
       <script>
         document.querySelectorAll('[data-carousel]').forEach(carousel => {
-        const slides = carousel.querySelector('.carousel-slides');
-        const images = carousel.querySelectorAll('.carousel-slides img');
-        const nextBtn = carousel.querySelector('[data-button="next"]');
-        const prevBtn = carousel.querySelector('[data-button="prev"]');
-        const indicatorContainer = carousel.querySelector('.carousel-indicators');
+          const slides = carousel.querySelector('.carousel-slides');
+          const images = carousel.querySelectorAll('.carousel-slides img');
+          const nextBtn = carousel.querySelector('[data-button="next"]');
+          const prevBtn = carousel.querySelector('[data-button="prev"]');
+          const indicatorContainer = carousel.querySelector('.carousel-indicators');
 
-        let counter = 0;
-        const size = 100;
+          let counter = 0;
+          const size = 100;
 
-        // Criar pontinhos dinamicamente
-        images.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            indicatorContainer.appendChild(dot);
+          // Criar pontinhos dinamicamente
+          images.forEach((_, i) => {
+              const dot = document.createElement('div');
+              dot.classList.add('dot');
+              if (i === 0) dot.classList.add('active');
+              dot.addEventListener('click', () => goToSlide(i));
+              indicatorContainer.appendChild(dot);
         });
 
         const dots = indicatorContainer.querySelectorAll('.dot');
