@@ -474,7 +474,44 @@ body {
 }
 
 /* carrossel */
+.project-user {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Centraliza o botão no card */
+}
 
+.insta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    text-decoration: none;
+    color: var(--dark-color);
+    background: #f4f4f4; /* Fundo suave para parecer botão */
+    padding: 6px 15px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.insta-link i {
+    font-size: 1.1rem;
+    /* Gradiente clássico do Instagram (opcional) */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.insta-link h3 {
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Efeito Hover */
+.insta-link:hover {
+    background: #ebebeb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
