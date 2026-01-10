@@ -155,7 +155,7 @@ body {
     display: flex;
     align-items: center;
     gap: 50px;
-    flex-wrap: wrap;
+    flex-wrap: 1200px;
 }
 
 .hero-image img {
@@ -169,6 +169,45 @@ body {
 .hero-content {
     flex: 1;
     min-width: 300px;
+}
+/* --- RESPONSIVIDADE (Mobile) --- */
+@media (max-width: 768px) {
+    .hero {
+        padding: 120px 20px 60px; /* Aumenta o topo para não cobrir a logo */
+    }
+
+    .hero-container {
+        flex-direction: column; /* Foto em cima, texto embaixo */
+        text-align: center;     /* Centraliza o texto no celular */
+        gap: 30px;
+    }
+
+    .hero-image {
+        order: 1; /* Garante que a foto apareça primeiro se desejar */
+    }
+
+    .hero-image img {
+        max-width: 250px; /* Diminui a foto no celular */
+        margin: 0 auto;
+    }
+
+    .hero-content {
+        order: 2;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem; /* Diminui o título para caber na tela */
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .social-links {
+        justify-content: center; /* Centraliza os ícones sociais */
+    }
 }
 
 .biografia {
