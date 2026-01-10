@@ -529,19 +529,25 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.7);
-    border: none;
+    background: transparent; /* Remove o fundo */
+    border: none;            /* Remove o contorno */
     cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 18px;
-    z-index: 2;
+    font-size: 20px;         /* Aumenta o tamanho da seta */
+    color: #0000007b; /* Use a cor da sua marca */
+    z-index: 10;
+    padding: 0;              /* Remove espaços internos */
     transition: 0.3s;
+    opacity: 0.6;            /* Deixa levemente transparente para ser discreto */
 }
 
-.prev:hover, .next:hover { background: #fff; }
-.prev { left: 10px; }
-.next { right: 10px; }
+/* Efeito ao passar o mouse: a seta fica mais forte e cresce um pouco */
+.prev:hover, .next:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
 
 .project-info {
     padding: 20px;
