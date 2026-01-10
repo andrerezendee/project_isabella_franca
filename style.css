@@ -72,7 +72,8 @@ body {
         width: 70%; /* Ocupa 70% da largura da tela */
         background: #fff;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-top: 100px;
         align-items: center;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         transition: 0.4s ease-in-out;
@@ -303,17 +304,11 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
+    justify-content: center;
+    justify-items: center;
 }
 
 .project-card {
-    /* background: #ddd;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-weight: bold; */
     background: #fff; /* Fundo branco ou neutro é melhor para social media */
     width: 100%;
     display: flex;
@@ -321,7 +316,8 @@ body {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    margin: 0 auto
+    margin: 0 auto;
+    max-width: 400px;
 }
 .project-card:hover {
     transform: translateY(-5px);
@@ -331,6 +327,7 @@ body {
 @media (max-width: 992px) {
     .project-grid {
         grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
     }
 }
 
@@ -338,6 +335,14 @@ body {
 @media (max-width: 600px) {
     .project-grid {
         grid-template-columns: 1fr;
+        justify-content: center;
+        justify-items: center;
+        padding: 20px 10px;
+    }
+    .project-card {
+        width: 100%;        /* Ocupa a largura disponível */
+        max-width: 350px;   /* Impede que fique gigante em telas muito largas */
+        margin: 0 auto;     /* Garante centralização se o card for menor que a tela */
     }
 }
 
