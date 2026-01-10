@@ -88,9 +88,9 @@
           <div class="project-card" data-carousel>
             <div class="carousel-container">
                 <div class="carousel-slides">
-                    <img src="IMG_4798.PNG" alt="Slide 1">
-                    <img src="IMG_4796.PNG" alt="Slide 2">
-                    <img src="IMG_4797.PNG" alt="Slide 3">
+                  <video autoplay muted loop playsinline>
+                      <source src="videeo_1.MP4" type="video/mp4">
+                  </video>
                 </div>
 
                 <button class="prev" data-button="prev">&#10094;</button>
@@ -99,8 +99,8 @@
                 <div class="carousel-indicators"></div>
             </div>
             <div class="project-info">
-                <h3>Nome do Projeto</h3>
-                <p>Estratégia e Design</p>
+                <h3>@fulanadetal</h3>
+                <p><i>serviço de video-maker mobile para gravação de nova coleção da fulana de tal.</i></p>
             </div>
           </div>
 
@@ -301,8 +301,9 @@
 
       <script>
         document.querySelectorAll('[data-carousel]').forEach(carousel => {
-          const slides = carousel.querySelector('.carousel-slides');
-          const images = carousel.querySelectorAll('.carousel-slides img');
+          const slidesContainer = carousel.querySelector('.carousel-slides');
+          // AJUSTE: Seleciona tanto imagens quanto vídeos para compor os slides
+          const items = carousel.querySelectorAll('.carousel-slides img, .carousel-slides video');
           const nextBtn = carousel.querySelector('[data-button="next"]');
           const prevBtn = carousel.querySelector('[data-button="prev"]');
           const indicatorContainer = carousel.querySelector('.carousel-indicators');
@@ -310,38 +311,51 @@
           let counter = 0;
           const size = 100;
 
-          // Criar pontinhos dinamicamente
-          images.forEach((_, i) => {
+          // Criar pontinhos dinamicamente baseados no total de itens (img + video)
+          items.forEach((_, i) => {
               const dot = document.createElement('div');
               dot.classList.add('dot');
               if (i === 0) dot.classList.add('active');
               dot.addEventListener('click', () => goToSlide(i));
               indicatorContainer.appendChild(dot);
+          });
+
+          const dots = indicatorContainer.querySelectorAll('.dot');
+
+          function updateDots() {
+              dots.forEach(dot => dot.classList.remove('active'));
+              if (dots[counter]) dots[counter].classList.add('active');
+          }
+
+          function goToSlide(index) {
+              counter = index;
+              slidesContainer.style.transform = `translateX(${-size * counter}%)`;
+              updateDots();
+
+              // OPCIONAL: Pausar vídeos que não estão visíveis e dar play no atual
+              items.forEach((item, i) => {
+                  if (item.tagName === 'VIDEO') {
+                      if (i === counter) {
+                          item.play();
+                      } else {
+                          item.pause();
+                      }
+                  }
+              });
+          }
+
+          nextBtn.addEventListener('click', () => {
+              // AJUSTE: Usa items.length em vez de images.length
+              counter = (counter >= items.length - 1) ? 0 : counter + 1;
+              goToSlide(counter);
+          });
+
+          prevBtn.addEventListener('click', () => {
+              // AJUSTE: Usa items.length em vez de images.length
+              counter = (counter <= 0) ? items.length - 1 : counter - 1;
+              goToSlide(counter);
+          });
         });
-
-        const dots = indicatorContainer.querySelectorAll('.dot');
-
-        function updateDots() {
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[counter].classList.add('active');
-        }
-
-        function goToSlide(index) {
-            counter = index;
-            slides.style.transform = `translateX(${-size * counter}%)`;
-            updateDots();
-        }
-
-        nextBtn.addEventListener('click', () => {
-            counter = (counter >= images.length - 1) ? 0 : counter + 1;
-            goToSlide(counter);
-        });
-
-        prevBtn.addEventListener('click', () => {
-            counter = (counter <= 0) ? images.length - 1 : counter - 1;
-            goToSlide(counter);
-        });
-    });
       </script>
 
   </body>

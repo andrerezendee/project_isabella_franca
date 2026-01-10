@@ -514,8 +514,14 @@ body {
 .carousel-slides img {
     min-width: 100%;
     height: 100%;
-    object-fit: contain;
-    background-color: #f9f9f9;
+    object-fit: contain; /* Ou 'contain' se preferir a foto inteira */
+    flex-shrink: 0;
+}
+.carousel-slides video {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ou 'contain' se preferir a foto inteira */
+    flex-shrink: 0;
 }
 
 /* Botões de Navegação */
