@@ -10,15 +10,21 @@
   <body>
 
       <nav class="navbar">
-          <div class="logo">
+        <div class="logo">
             Isabella França
             <span class="subtitle-logo">Direção Criativa</span>
-          </div>
-          <ul class="nav-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#projetos">Projetos</a></li>
-              <li><a href="#pacotes">Valores</a></li>
-          </ul>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#pacotes">Valores</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
       </nav>
 
       <header id="home" class="hero">
@@ -389,6 +395,24 @@
               goToSlide(counter);
           });
         });
+
+        const menu = document.querySelector('#mobile-menu');
+          const menuLinks = document.querySelector('.nav-links');
+
+          // Abre/Fecha o menu ao clicar no hambúrguer
+          menu.addEventListener('click', function() {
+              menu.classList.toggle('is-active');
+              menuLinks.classList.toggle('active');
+          });
+
+          // Fecha o menu automaticamente ao clicar em um link (para rolar até a seção)
+          document.querySelectorAll('.nav-links a').forEach(link => {
+              link.addEventListener('click', () => {
+                  menu.classList.remove('is-active');
+                  menuLinks.classList.remove('active');
+              });
+          });
+
       </script>
 
   </body>
