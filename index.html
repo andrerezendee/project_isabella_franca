@@ -97,14 +97,13 @@
                   <video autoplay muted loop playsinline>
                       <source src="videeo_1.MP4" type="video/mp4">
                   </video>
-                  <video autoplay muted loop playsinline>
-                      <source src="video_projeto.MP4" type="video/mp4">
-                  </video>
                 </div>
 
                 <button class="prev" data-button="prev">&#10094;</button>
                 <button class="next" data-button="next">&#10095;</button>
-
+                <button class="mute-toggle-global" data-mute-btn>
+                    <i class="fas fa-volume-mute"></i>
+                </button>
                 <div class="carousel-indicators"></div>
             </div>
             <div class="project-info">
@@ -395,6 +394,61 @@
               goToSlide(counter);
           });
         });
+
+        /* javascript do audio dos videos */
+
+        // 1. Lógica de Áudio Exclusivo (Um por vez)
+      const allVideos = document.querySelectorAll('video');
+      const allMuteBtns = document.querySelectorAll('[data-mute-btn]');
+
+        allMuteBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const container = btn.closest('[data-carousel]');
+                // Pegamos os vídeos do carrossel atual
+                const videos = container.querySelectorAll('video');
+
+                // No carrossel, identificamos qual vídeo está visível pela lógica do seu counter
+                // Se houver apenas um vídeo por card, usamos:
+                const activeVideo = videos[0];
+
+                if (activeVideo.muted) {
+                    // Muta absolutamente todos os vídeos do site antes de ligar este
+                    allVideos.forEach(v => v.muted = true);
+                    allMuteBtns.forEach(b => b.querySelector('i').classList.replace('fa-volume-up', 'fa-volume-mute'));
+
+                    activeVideo.muted = false;
+                    btn.querySelector('i').classList.replace('fa-volume-mute', 'fa-volume-up');
+                } else {
+                    activeVideo.muted = true;
+                    btn.querySelector('i').classList.replace('fa-volume-up', 'fa-volume-mute');
+                }
+            });
+        });
+
+        // 2. Lógica de Mudo Automático ao Rolar a Página (IntersectionObserver)
+        const observerOptions = {
+            threshold: 0.2 // Se menos de 20% do vídeo estiver visível, ele silencia
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+
+                // Se o vídeo sair da tela
+                if (!entry.isIntersecting) {
+                    video.muted = true;
+                    // Atualiza o ícone do botão correspondente para "mudo"
+                    const container = video.closest('[data-carousel]');
+                    if (container) {
+                        const btnIcon = container.querySelector('[data-mute-btn] i');
+                        if (btnIcon) btnIcon.classList.replace('fa-volume-up', 'fa-volume-mute');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Ativa o monitoramento em todos os vídeos
+        allVideos.forEach(video => observer.observe(video));
 
         const menu = document.querySelector('#mobile-menu');
           const menuLinks = document.querySelector('.nav-links');
