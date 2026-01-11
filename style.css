@@ -247,12 +247,14 @@ body {
 .video-banner {
     position: relative;
     height: 400px;
+    width: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     text-align: center;
+    padding: 0 20px;
 }
 
 .bg-video {
@@ -279,11 +281,34 @@ body {
 }
 
 .video-text {
+    position: relative; /* Garante que fique acima do overlay */
     z-index: 1;
+    width: 100%;
+    max-width: 800px;
 }
 
 .video-text h2 {
     font-size: 2.5rem;
+    margin: 0;
+    line-height: 1.2;
+}
+/* --- AJUSTES PARA MOBILE --- */
+@media (max-width: 768px) {
+    .video-banner {
+        height: 300px; /* Reduz a altura para não ocupar a tela toda no celular */
+    }
+
+    .video-text h2 {
+        font-size: 1.6rem; /* Tamanho de fonte mais confortável para celular */
+        padding: 0 10px;
+    }
+
+    /* Opcional: Ajuste para garantir que o vídeo preencha bem o fundo mobile */
+    .bg-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 /* Projetos */
@@ -458,8 +483,96 @@ body {
 
     .bio-image img {
         max-width: 300px;
-        box-shadow: 10px 10px 0px var(--primary-color);
     }
+}
+
+  /* section de feedbacks */
+
+.feedback-section {
+    position: relative;
+    padding: 100px 10%;
+    /* Substitua pelo caminho da sua imagem */
+    background: url('imagem_fundo.jpeg') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+.feedback-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7); /* Ajuste a opacidade conforme necessário */
+    z-index: 1;
+}
+/* Centralização do Cabeçalho */
+.feedback-section .section-header {
+    position: relative;
+    z-index: 2;
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedback-section .section-header .subtitle {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.feedback-section .section-header h2 {
+    text-align: center;
+}
+
+.feedback-grid {
+    position: relative;
+    z-index: 2;
+    column-count: 3;
+    column-gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.feedback-card {
+    background: #fff;
+    break-inside: avoid; /* Não deixa o card quebrar entre colunas */
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid #efefef;
+    transition: 0.3s ease;
+}
+
+.feedback-card:hover {
+    transform: scale(1.02);
+}
+
+.feedback-card img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.card-insta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .feedback-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+    .feedback-grid { column-count: 1; }
 }
 
 /*section de pacotes */
