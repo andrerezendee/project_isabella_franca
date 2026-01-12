@@ -151,6 +151,9 @@ body {
     align-items: center;
     background: #fff;
 }
+.hero-content p {
+  margin-bottom: 20px;
+}
 
 .hero-container {
     display: flex;
@@ -170,6 +173,7 @@ body {
 .hero-content {
     flex: 1;
     min-width: 300px;
+
 }
 
 /* --- RESPONSIVIDADE (Mobile) --- */
@@ -510,8 +514,8 @@ body {
 }
 
 .bio-text p {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-size: 1.0rem;
     color: #444;
     line-height: 1.7;
 }
