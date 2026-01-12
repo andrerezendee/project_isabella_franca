@@ -312,9 +312,30 @@ body {
 }
 
 /* Projetos */
+.section-header-projects {
+    position: relative;
+    z-index: 2;
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .projects {
-    padding: 80px 10%;
-    text-align: center;
+    padding: 80px 0; /* Tiramos o padding lateral para o slider encostar nos cantos se quiser */
+    overflow: hidden;
+}
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.project-slider {
+    width: 100%;
+    overflow: hidden; /* Importante para não bugar a página */
+    padding: 20px 0;
 }
 .project-info {
     padding: 15px;
@@ -323,30 +344,54 @@ body {
 }
 
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    justify-content: center;
-    justify-items: center;
+    display: flex !important; /* Força flexbox */
+    flex-wrap: nowrap !important; /* PROÍBE quebrar linha */
+    gap: 30px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: max-content; /* Faz a div ser do tamanho de todos os cards somados */
 }
 
 .project-card {
-    background: #fff; /* Fundo branco ou neutro é melhor para social media */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    min-width: 300px; /* Largura fixa de cada card */
+    max-width: 300px;
+    flex-shrink: 0; /* Impede que o navegador esprema o card */
+    background: #fff;
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    margin: 0 auto;
-    max-width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.slider-btn:hover { background: var(--primary-color); color: #fff; }
+.prev-slider { left: 10px; }
+.next-slider { right: 10px; }
+
+/* Mobile: permitir arrastar com o dedo */
+@media (max-width: 768px) {
+    .project-slider {
+        overflow-x: auto; /* Permite scroll manual no celular */
+        scroll-snap-type: x mandatory;
+    }
+    .project-card {
+        scroll-snap-align: center;
+        min-width: 280px;
+    }
+    .slider-btn { display: none; } /* Esconde setas no mobile */
 }
 .mute-toggle-global {
     position: absolute;
@@ -491,10 +536,12 @@ body {
 .feedback-section {
     position: relative;
     padding: 100px 10%;
-    /* Substitua pelo caminho da sua imagem */
-    background: url('imagem_fundo.jpeg') no-repeat center center;
-    background-size: cover;
-    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Garante que o vídeo não saia dos limites */
+    color: #fff; /* Se o vídeo for escuro, mude a cor do texto */
 }
 .feedback-section::before {
     content: "";
@@ -506,10 +553,32 @@ body {
     background: rgba(255, 255, 255, 0.7); /* Ajuste a opacidade conforme necessário */
     z-index: 1;
 }
+.video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2; /* Fica atrás de tudo */
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7); /* Overlay branco para manter a estética leve */
+    z-index: -1; /* Fica entre o vídeo e o texto */
+}
 /* Centralização do Cabeçalho */
 .feedback-section .section-header {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     text-align: center; /* Centraliza o texto */
     margin-bottom: 50px;
     max-width: 800px;
@@ -521,10 +590,15 @@ body {
     display: block;
     text-align: center;
     margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .feedback-section .section-header h2 {
     text-align: center;
+    position: relative;
+    z-index: 1;
+    color: black;
 }
 
 .feedback-grid {
