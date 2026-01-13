@@ -319,16 +319,19 @@ body {
 /* Projetos */
 .section-header-projects {
     position: relative;
-    z-index: 2;
-    text-align: center; /* Centraliza o texto */
-    margin-bottom: 50px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 60px 20px; /* Dá espaço para a imagem aparecer */
+    text-align: center;
+
+
 }
 .projects {
-    padding: 80px 0; /* Tiramos o padding lateral para o slider encostar nos cantos se quiser */
+
     overflow: hidden;
+    background-color: #fff;
+    background: url('fundo_projects.png') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+
 }
 .slider-wrapper {
     position: relative;
@@ -336,7 +339,9 @@ body {
     display: flex;
     align-items: center;
 }
-
+.project-container {
+  background: linear-gradient(to top, #97a874, transparent);
+}
 .project-slider {
     width: 100%;
     overflow: hidden; /* Importante para não bugar a página */
@@ -546,7 +551,8 @@ body {
     flex-direction: column;
     align-items: center;
     overflow: hidden; /* Garante que o vídeo não saia dos limites */
-    color: #fff; /* Se o vídeo for escuro, mude a cor do texto */
+    color: #fff;
+    background: linear-gradient(to bottom, #97a874, transparent);/* Se o vídeo for escuro, mude a cor do texto */
 }
 .feedback-section::before {
     content: "";
@@ -555,7 +561,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.7); /* Ajuste a opacidade conforme necessário */
+    /* background: rgba(255, 255, 255, 0.7); Ajuste a opacidade conforme necessário */
     z-index: 1;
 }
 .video-bg {
@@ -604,6 +610,9 @@ body {
     position: relative;
     z-index: 1;
     color: black;
+}
+.section-header span {
+  color: #fff;
 }
 
 .feedback-grid {
@@ -916,10 +925,11 @@ body {
     background-color: #ffffff;
     padding: 60px 10% 30px;
     border-top: 1px solid #eee;
-    color: #333;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente o container */
+    background: linear-gradient(to top, #97a874, #fff);
 }
 
 .footer-container {
@@ -927,6 +937,7 @@ body {
     display: flex;
     justify-content: center; /* Garante que o conteúdo interno fique no meio */
     margin-bottom: 40px;
+
 }
 
 .footer-contact {
@@ -939,12 +950,12 @@ body {
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: var(--dark-color);
+    color: black;
 }
 
 .footer-contact p {
     font-size: 0.9rem;
-    color: #666;
+    color: black;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
@@ -975,7 +986,7 @@ body {
     width: 100%;
     text-align: center;
     font-size: 0.8rem;
-    color: #999;
+    color: black;
 }
 .footer_link {
   color: inherit;
