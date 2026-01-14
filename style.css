@@ -13,9 +13,10 @@
 }
 
 body {
-    background-color: var(--light-color);
+    /* background-color: var(--light-color); */
     color: var(--dark-color);
     line-height: 1.6;
+    background-image: linear-gradient( to top, #97a874 3%, #fff 20%) !important;
 }
 
 /* Navbar */
@@ -170,7 +171,7 @@ h2.reveal { transition-delay: 0.3s; }
     padding: 150px 10% 80px;
     display: flex;
     align-items: center;
-    background: #fff;
+    /* background: #fff; */
 }
 .hero-content p {
   margin-bottom: 20px;
@@ -348,8 +349,8 @@ h2.reveal { transition-delay: 0.3s; }
 .projects {
 
     overflow: hidden;
-    background-color: #fff;
-    background: url('/images/fundo_projects.png') no-repeat center center;
+    /* background-color: #fff; */
+    /* background: url('/images/fundo_projects.png') no-repeat center center; */
     background-size: cover;
     overflow: hidden;
 
@@ -361,7 +362,7 @@ h2.reveal { transition-delay: 0.3s; }
     align-items: center;
 }
 .project-container {
-  background: linear-gradient(to top, #97a874, transparent);
+  /* background: linear-gradient(to top, #97a874, transparent); */
 }
 .project-slider {
     width: 100%;
@@ -510,7 +511,7 @@ h2.reveal { transition-delay: 0.3s; }
 
 .biografia {
     padding: 100px 10%;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .bio-container {
@@ -587,7 +588,7 @@ h2.reveal { transition-delay: 0.3s; }
   /* section de feedbacks */
 
 .feedback-section {
-    position: relative;
+    position: fixed;
     padding: 100px 10%;
     min-height: 600px;
     display: flex;
@@ -595,7 +596,7 @@ h2.reveal { transition-delay: 0.3s; }
     align-items: center;
     overflow: hidden; /* Garante que o vídeo não saia dos limites */
     color: #fff;
-    background: linear-gradient(to bottom, #97a874, transparent);/* Se o vídeo for escuro, mude a cor do texto */
+    /* background: linear-gradient(to bottom, #97a874, transparent);Se o vídeo for escuro, mude a cor do texto */
 }
 .feedback-section::before {
     content: "";
@@ -728,7 +729,7 @@ h2.reveal { transition-delay: 0.3s; }
 
 .pricing {
     padding: 100px 10%;
-    background-color: #fcfcfc;
+    /* background-color: #fcfcfc; */
     text-align: center;
 }
 
@@ -983,14 +984,14 @@ h2.reveal { transition-delay: 0.3s; }
  /* footer */
 
 .main-footer {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     padding: 60px 10% 30px;
     border-top: 1px solid #eee;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente o container */
-    background: linear-gradient(to top, #97a874, #fff);
+    /* background: linear-gradient(to top, #97a874, #fff); */
 }
 
 .footer-container {
