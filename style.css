@@ -51,6 +51,30 @@ body {
     transition: 0.3s;
     border-radius: 2px;
 }
+.nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 400;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
 
 /* --- RESPONSIVIDADE (Celular) --- */
 @media (max-width: 768px) {
@@ -69,17 +93,48 @@ body {
         position: fixed;
         right: -100%; /* Escondido à direita */
         top: 0;
-        height: 100vh;
-        width: 70%; /* Ocupa 70% da largura da tela */
-        background: #fff;
+        height: 50vh;
+        width: 40%; /* Ocupa 70% da largura da tela */
+        background-image: linear-gradient(to left, #97a874, #fff );
         flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 20px;
+        justify-content: center;
+        padding-top: 0 !important;
         margin-top: 0;
         align-items: center;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         transition: 0.4s ease-in-out;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+
     }
+    .nav-links a {
+      /* 1. Fonte moderna e limpa */
+      font-family: 'Montserrat',
+
+      /* 2. Remove o sublinhado padrão feio */
+      text-decoration: none;
+
+      /* 3. Cor e Tamanho */
+      color: var(--dark-color); /* Ou use #333 se a variável falhar */
+      font-size: 0.9rem;        /* Um pouco maior para facilitar o toque */
+      font-weight: 500;         /* Espessura média (nem muito fino, nem negrito) */
+
+      /* 4. O segredo da sofisticação */
+      text-transform: uppercase; /* Deixa tudo em CAIXA ALTA */
+      letter-spacing: 2px;       /* Espaçamento entre as letras */
+
+      /* 5. Transição suave */
+      transition: all 0.3s ease;
+      padding: 10px; /* Aumenta a área de toque */
+      display: block; /* Garante que o padding funcione */
+  }
+
+/* Efeito ao passar o mouse ou tocar */
+    .nav-links a:hover {
+      color: #97a874; /* Aquele seu verde elegante */
+      letter-spacing: 3px; /* As letras se separam levemente ao passar o mouse */
+      font-weight: 600;
+  }
 
     .nav-links.active {
         right: 0; /* Desliza para dentro da tela */
@@ -145,30 +200,7 @@ body {
     }
 }
 
-.nav-links {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    list-style: none;
-}
 
-.nav-links li {
-    margin-left: 25px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark-color);
-    font-weight: 400;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
 
 /* Hero Section */
 /* efeitos */
@@ -613,7 +645,7 @@ h2.reveal { transition-delay: 0.3s; }
     .bio-image img {
         max-width: 300px;
     }
-   
+
 }
 
   /* section de feedbacks */
