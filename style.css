@@ -74,7 +74,8 @@ body {
         background: #fff;
         flex-direction: column;
         justify-content: flex-start;
-        padding-top: 100px;
+        padding-top: 20px;
+        margin-top: 0;
         align-items: center;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         transition: 0.4s ease-in-out;
@@ -118,6 +119,30 @@ body {
 
 .logo span {
     color: var(--primary-color);
+}
+@media (max-width: 1024px) {
+    .logo {
+        font-size: 1.2rem; /* Reduz levemente o nome */
+    }
+
+    .subtitle-logo {
+        font-size: 0.6rem;
+        letter-spacing: 3px; /* Reduz o espaçamento para caber na tela */
+    }
+}
+
+/* --- CELULAR (até 768px) --- */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1rem; /* Tamanho ideal para não brigar com o menu hambúrguer */
+        letter-spacing: 1px;
+    }
+
+    .subtitle-logo {
+        font-size: 0.45rem; /* Fica bem pequeno e delicado */
+        letter-spacing: 1px; /* Espaçamento mínimo para não vazar a tela */
+        margin-top: 2px;     /* Aproxima mais do nome */
+    }
 }
 
 .nav-links {
@@ -198,6 +223,15 @@ h2.reveal { transition-delay: 0.3s; }
     min-width: 300px;
 
 }
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content span {
+    color: var(--primary-color);
+}
 
 /* --- RESPONSIVIDADE (Mobile) --- */
 @media (max-width: 768px) {
@@ -225,7 +259,7 @@ h2.reveal { transition-delay: 0.3s; }
     }
 
     .hero-content h1 {
-        font-size: 2rem; /* Diminui o título para caber na tela */
+        font-size: 1.8rem; /* Diminui o título para caber na tela */
         line-height: 1.2;
     }
 
@@ -244,15 +278,7 @@ h2.reveal { transition-delay: 0.3s; }
     min-width: 300px;
 }
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
 
-.hero-content span {
-    color: var(--primary-color);
-}
 
 .social-links {
     margin-top: 30px;
@@ -581,12 +607,13 @@ h2.reveal { transition-delay: 0.3s; }
     }
 
     .bio-content {
-        text-align: center;
+        text-align: left;
     }
 
     .bio-image img {
         max-width: 300px;
     }
+   
 }
 
   /* section de feedbacks */
