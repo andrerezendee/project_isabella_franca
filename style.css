@@ -1049,7 +1049,7 @@ h2.reveal { transition-delay: 0.3s; }
 .main-footer {
     /* background-color: #ffffff; */
     padding: 60px 10% 30px;
-    border-top: 1px solid #eee;
+    /* border-top: 1px solid #eee; */
     color: black;
     display: flex;
     flex-direction: column;
@@ -1079,7 +1079,7 @@ h2.reveal { transition-delay: 0.3s; }
 }
 
 .footer-contact p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: black;
     margin-bottom: 12px;
     display: flex;
@@ -1092,17 +1092,19 @@ h2.reveal { transition-delay: 0.3s; }
     display: inline-block;
     margin-top: 20px;
     padding: 15px 35px;
-    background: var(--dark-color);
-    color: #fff;
+    background-color: #fff;
+    color: var(--primary-color);
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
     transition: 0.3s;
+    border-style: ridge;
 }
 
 .cta-footer:hover {
     background: var(--primary-color);
     transform: scale(1.05);
+    color: #fff;
 }
 
 .footer-bottom {
