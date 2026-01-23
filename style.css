@@ -12,6 +12,9 @@
     --light-color: #f4f4f4;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 body {
     /* background-color: var(--light-color); */
     color: var(--dark-color);
