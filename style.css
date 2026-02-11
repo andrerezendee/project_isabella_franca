@@ -804,8 +804,9 @@ h2.reveal { transition-delay: 0.3s; }
 }
 
 .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;           /* Mudamos de Grid para Flex */
+    flex-wrap: wrap;         /* Permite que os cards caiam para a linha de baixo */
+    justify-content: center; /* O SEGREDO: Centraliza os cards na tela */
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -814,6 +815,7 @@ h2.reveal { transition-delay: 0.3s; }
 
 .price-card {
     background: #fff;
+    flex: 0 1 350px;
     padding: 30px 25px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
